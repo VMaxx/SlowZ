@@ -1,0 +1,8 @@
+{
+    "name": "SlowZ",
+    "author": "Shane Bumapurs c/o fieldOfView",
+    "version": "1.0.0",
+    "description": "Adds a percentage to slow the printer as Z rises",
+    "api": 5,
+    "supported_sdk_versions": ["5.0.0", "6.0.0", "7.0.0"]
+}
