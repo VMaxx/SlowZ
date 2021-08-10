@@ -24,7 +24,7 @@ class SlowZ(Extension):
             "label": "Slow Z percent",
             "description": "Positive value to slow the print as the z value rises up to 50 percent.",
             "type": "float",
-            "unit": "percent",
+            "unit": "%",
             "default_value": 0,
             "minimum_value": "0",
             "maximum_value_warning": "50",
@@ -93,12 +93,12 @@ class SlowZ(Extension):
             return
 
         dict_changed = False
-        z_move_regex = re.compile(r"(G[01]\s.*Z)([-\+]?\d*\.?\d*)(.*)")
+        
         speed_value = 100 # start at 100% speed
         for plate_id in gcode_dict:
             gcode_list = gcode_dict[plate_id]
             if len(gcode_list) < 2:
-                Logger.log("w", "Plate %s does not contain any layers", plate_id)
+                Logger.log("w", "G-Code %s does not contain any layers", plate_id)
                 continue
             if ";SLOWZ\n" not in gcode_list[0]:
                 layercount=0
@@ -134,7 +134,7 @@ class SlowZ(Extension):
                     gcode_dict[plate_id] = gcode_list
                     dict_changed = True
             else:
-                Logger.log("d", "Plate %s has already been processed", plate_id)
+                Logger.log("d", "G-Code %s has already been processed", plate_id)
                 continue
 
         if dict_changed:
