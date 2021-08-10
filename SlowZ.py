@@ -21,7 +21,7 @@ class SlowZ(Extension):
 
         self._settings_dict = OrderedDict()
         self._settings_dict["slowz_percentage"] = {
-            "label": "Slow Z percent",
+            "label": "Slow Z percentage",
             "description": "Positive value to slow the print as the z value rises up to 50 percent.",
             "type": "float",
             "unit": "%",
